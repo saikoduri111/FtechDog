@@ -1,0 +1,9 @@
+<div class="dog-details">
+    <img [src]="dog.img" alt="{{ dog.name }}">
+    <h2>{{ dog.name }}</h2>
+    <p>Breed: {{ dog.breed }}</p>
+    <p>Age: {{ dog.age }}</p>
+    <p>Location: {{ dog.zip_code }}</p>
+    <button (click)="addToFavorites()">Add to Favorites</button>
+  </div>
+  

@@ -1,0 +1,30 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+  }
+  
+  header {
+    background-color: rgb(186, 246, 95);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  main {
+    flex-grow: 1; /* Allow the main content area to grow and fill the remaining space */
+    padding: 20px;
+  }
+  
+  footer {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 10px 0;
+    text-align: center;
+  }
+  

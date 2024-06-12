@@ -1,0 +1,42 @@
+   <div class="search-container">
+    <h1>Search Dogs</h1>
+    <div>
+      <label for="breed">Breed:</label>
+      <select id="breed" [(ngModel)]="selectedBreed" (change)="search()">
+        <option value="">All Breeds</option>
+        <option *ngFor="let breed of breeds" [value]="breed">{{ breed }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="perPage">Results per Page:</label>
+      <select id="perPage" [(ngModel)]="perPage" (change)="search()">
+        <option *ngFor="let option of perPageOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="sort">Sort by Breed:</label>
+      <select id="sort" [(ngModel)]="sortOrder" (change)="search()">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </div>
+    <div *ngIf="dogs.length === 0">
+      <p>No dogs found.</p>
+    </div>
+    <div *ngFor="let dog of dogs">
+      <app-dog-details [dog]="dog" (favorite)="toggleFavorite(dog.id)"></app-dog-details>
+    </div>
+    <div *ngIf="favorites.length > 0">
+      <p>Favorite Dog IDs: {{ favorites.join(', ') }}</p>
+      <button (click)="generateMatch()">Find Match</button>
+    </div>
+    <div *ngIf="error">
+      <p class="error">{{ error }}</p>
+    </div>
+    <div>
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous Page</button> <br>
+      <button (click)="nextPage()">Next Page</button>
+    </div>
+    <button (click)="logout()" style="color: white; background-color: red;">Logout</button>
+  </div>
+  
